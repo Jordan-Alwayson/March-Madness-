@@ -3,51 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025 March Madness Bracket</title>
+    <title>2025 March Madness Interactive Bracket</title>
     <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f0f0f0; }
-        .bracket-container { display: flex; justify-content: center; margin: 20px; }
-        .round { margin: 0 20px; }
-        .matchup { margin: 10px 0; padding: 10px; background-color: white; border: 1px solid #ccc; border-radius: 5px; }
-        select, .winner { width: 150px; padding: 5px; margin: 5px 0; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .region {
+            margin: 20px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .round {
+            display: inline-block;
+            margin: 0 10px;
+            vertical-align: top;
+        }
+        .matchup {
+            margin: 10px 0;
+            padding: 5px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .team {
+            width: 150px;
+            padding: 5px;
+            cursor: pointer;
+            background-color: #e0e0e0;
+            margin: 2px 0;
+        }
+        .team:hover {
+            background-color: #d0d0d0;
+        }
+        .winner {
+            width: 150px;
+            padding: 5px;
+            margin: 15px 0;
+            background-color: #fff;
+            border: 1px dashed #999;
+        }
+        h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
     </style>
 </head>
 <body>
-    <h1>2025 March Madness Bracket (East Region)</h1>
-    <div class="bracket-container">
-        <div class="round" id="round-64">
-            <h2>Round of 64</h2>
+    <h1>2025 March Madness Interactive Bracket</h1>
+    <div class="region">
+        <h2>East Region</h2>
+        <div class="round" id="east-r64">
             <div class="matchup">
-                <select onchange="advanceTeam(this, 'r32-1')">
-                    <option value="">Select Winner</option>
-                    <option value="1 Seed">1 Seed</option>
-                    <option value="16 Seed">16 Seed</option>
-                </select>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-1')">1. Duke</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-1')">16. St. Francis</div>
             </div>
             <div class="matchup">
-                <select onchange="advanceTeam(this, 'r32-2')">
-                    <option value="">Select Winner</option>
-                    <option value="8 Seed">8 Seed</option>
-                    <option value="9 Seed">9 Seed</option>
-                </select>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-2')">8. Michigan</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-2')">9. Creighton</div>
             </div>
-            <!-- Add more matchups for full region -->
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-3')">5. Kentucky</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-3')">12. Yale</div>
+            </div>
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-4')">4. Tennessee</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-4')">13. UC Irvine</div>
+            </div>
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-5')">6. Florida</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-5')">11. North Carolina</div>
+            </div>
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-6')">3. Houston</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-6')">14. Samford</div>
+            </div>
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-7')">7. Marquette</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-7')">10. Xavier</div>
+            </div>
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'east-r32-8')">2. UConn</div>
+                <div class="team" onclick="advanceTeam(this, 'east-r32-8')">15. Colgate</div>
+            </div>
         </div>
-        <div class="round" id="round-32">
-            <h2>Round of 32</h2>
-            <div class="matchup">
-                <div class="winner" id="r32-1">-</div>
-            </div>
-            <div class="matchup">
-                <div class="winner" id="r32-2">-</div>
-            </div>
+        <div class="round" id="east-r32">
+            <div class="matchup"><div class="winner" id="east-r32-1">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-2">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-3">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-4">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-5">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-6">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-7">-</div></div>
+            <div class="matchup"><div class="winner" id="east-r32-8">-</div></div>
         </div>
     </div>
+
+    <!-- Add West, South, Midwest regions similarly -->
+    <!-- Example for West (abbreviated) -->
+    <div class="region">
+        <h2>West Region</h2>
+        <div class="round" id="west-r64">
+            <div class="matchup">
+                <div class="team" onclick="advanceTeam(this, 'west-r32-1')">1. Gonzaga</div>
+                <div class="team" onclick="advanceTeam(this, 'west-r32-1')">16. Wagner</div>
+            </div>
+            <!-- Add remaining 7 matchups -->
+        </div>
+        <div class="round" id="west-r32">
+            <div class="matchup"><div class="winner" id="west-r32-1">-</div></div>
+            <!-- Add remaining 7 winners -->
+        </div>
+    </div>
+
+    <!-- Final Four and Championship -->
+    <div class="region">
+        <h2>Final Four</h2>
+        <div class="round" id="final-four">
+            <div class="matchup"><div class="winner" id="ff-1">-</div></div>
+            <div class="matchup"><div class="winner" id="ff-2">-</div></div>
+        </div>
+        <div class="round" id="championship">
+            <h2>Champion</h2>
+            <div class="matchup"><div class="winner" id="champ">-</div></div>
+        </div>
+    </div>
+
     <script>
-        function advanceTeam(selectElement, nextRoundId) {
-            const selectedTeam = selectElement.value;
+        function advanceTeam(teamElement, nextRoundId) {
+            const selectedTeam = teamElement.textContent;
             const nextRoundSlot = document.getElementById(nextRoundId);
-            nextRoundSlot.textContent = selectedTeam || "-";
+            nextRoundSlot.textContent = selectedTeam;
+            const teamsInMatchup = teamElement.parentElement.querySelectorAll('.team');
+            teamsInMatchup.forEach(team => team.style.backgroundColor = '#e0e0e0');
+            teamElement.style.backgroundColor = '#90ee90'; // Green for selected
         }
     </script>
 </body>
